@@ -1,5 +1,4 @@
 <html>
-
 <head>
     <title>Fundamentals 2</title>
     <style>
@@ -14,13 +13,16 @@
     <h1>Fundamentals 2</h1>
     <svg id="display" height=300 width=1000></svg>
 
+    <!-- loads d3js -->
     <script src="https://d3js.org/d3.v4.js"></script>
     <script>
+        //given variables
         const array = [92, 56, 14, 73, 22, 38, 93, 45, 55];
         const start = 50;
 
+        //slects correct svg
         var svg = d3.select("#display");
-        //making original circles with given requirements
+        //making original circles with given requirements like in fundamentals 1
         for (var i = 0; i < array.length; i++) {
             svg.append("circle")
                 .attr("r", array[i] / 2)
@@ -32,15 +34,15 @@
 
         //transition
         setTimeout(function () {
+            //selects svg and all circles
             d3.select("#display").selectAll("circle")
-                .data(array.sort()) //sorts by radius
+                .data(array.sort()) //sorts original data, which is radius size
                 .transition().duration(1500) //takes 1.5 seconds
                 .attr("r", d => d / 2) //takes next data point (radius in this case) and divides by 2
-                .attr("cx", (d, i) => start + (i * 100)) //takes next data point and i counter to find next cx
+                .attr("cx", (d, i) => start + (i * 100)) //cx like original circles but for each data point
                 .attr("fill", "black")
                 .attr("stroke", "red");
         }, 2000); //transition occurs after 2 seconds
     </script>
 </body>
-
 </html>

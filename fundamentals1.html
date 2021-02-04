@@ -1,5 +1,4 @@
 <html>
-
 <head>
     <title>Fundamentals 1</title>
     <style>
@@ -13,8 +12,10 @@
     <h1>Fundamentals 1</h1>
     <svg id="display" height=300 width=600></svg>
 
+    <!-- load d3js -->
     <script src="https://d3js.org/d3.v4.js"></script>
     <script>
+        // function to get factors
         function factors(num) {
             var factors = [];
             for (var i = 1; i <= num; i++) {
@@ -25,8 +26,11 @@
             return factors;
         }
 
+        //select the correct svg
         var svg = d3.select("#display");
+        //make a list of the needed factors
         var fList = factors(24);
+        //use list of factors to loop through and make circles
         for (var i = 0; i < fList.length; i++) {
             svg.append("circle")
                 .attr("r", fList[i])
@@ -37,5 +41,4 @@
         }
     </script>
 </body>
-
 </html>
