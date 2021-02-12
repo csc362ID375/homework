@@ -1,0 +1,64 @@
+<!--
+Mimi Ughetta
+-->
+
+<body>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+
+    <!-- Set up basic webpage structure -->
+    <div id="header"></div>
+    <div id="nominal" class="red"></div>
+    <div id="ordinal" class="green"></div>
+    <div id="interval" class="blue"></div>
+    <div id="ratio" class="purple"></div>
+
+    <style>
+        .red {
+            color: white;
+            background-color: #e41a1c;
+            padding: 5px;
+        }
+
+        .green {
+            color: #4daf4a;
+            padding: 5px;
+        }
+
+        .blue {
+            color: white;
+            background-color: #377eb8;
+            padding: 5px;
+        }
+
+        .purple {
+            color: #984ea3;
+            padding: 5px;
+        }
+    </style>
+
+    <script>
+        d3.select("#header").append("h1")
+            .text("Selecting and Appending to Dicuss Data Types");
+
+        d3.select("#nominal").append("h1")
+            .text("Nominal");
+        d3.select("#nominal").append("p")
+            .text("Nominal data has labels that are not associated with any numerical value. These labels are mutually exclusive and have no order to them. An example would be hair color.");
+
+        d3.select("#ordinal").append("h1")
+            .text("Ordinal");
+        d3.select("#ordinal").append("p")
+            .text("Ordinal data has labels where the order of these values are important. An example would be satisfaction ratings.");
+
+        d3.select("#interval").append("h1")
+            .text("Interval");
+        d3.select("#interval").append("p")
+            .text("Interval data are numeric scales. There is an order, and we know the difference between the values. There is no true zero for this data. An example is Calsius temperature.");
+
+        d3.select("#ratio").append("h1")
+            .text("Ratio");
+        d3.select("#ratio").append("p")
+            .text("Ratio data are numeric scales with an absolute zero. They also have an order and known differences between values. An example is weight.");
+    </script>
+
+</body>
