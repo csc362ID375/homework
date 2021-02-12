@@ -1,14 +1,10 @@
-<body>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
-
-    <!-- Set up basic webpage structure -->
-    <div id="header"></div>
-    <div id="nominal" class="red"></div>
-    <div id="ordinal" class="green"></div>
-    <div id="interval" class="blue"></div>
-    <div id="ratio" class="purple"></div>
-
+<html>
+<head>
+    <!-- author: csc362ID375
+    data for homework 2 -->
+    <title>data</title>
     <style>
+        /* css styling */
         .red {
             color: white;
             background-color: #e41a1c;
@@ -31,30 +27,52 @@
             padding: 5px;
         }
     </style>
+</head>
+
+<body>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+
+    <!-- basic webpage structure -->
+    <div id="header"></div>
+    <div id="nominal" class="red"></div>
+    <div id="ordinal" class="green"></div>
+    <div id="interval" class="blue"></div>
+    <div id="ratio" class="purple"></div>
 
     <script>
-        d3.select("#header").append("h1")
-            .text("Selecting and Appending to Dicuss Data Types");
+        //appending header
+        d3.select("#header") //selecting the html div with the id header
+            .append("h1")   //appending a data type of h1 (header 1)
+            .text("Selecting and Appending to Dicuss Data Types"); //apending the following text
 
+        //appending information on nominal data, with a header above a paragraph of information
         d3.select("#nominal").append("h1")
             .text("Nominal");
+
         d3.select("#nominal").append("p")
             .text("Nominal data has labels that are not associated with any numerical value. These labels are mutually exclusive and have no order to them. An example would be hair color.");
 
+        //appending information on ordinal data
         d3.select("#ordinal").append("h1")
             .text("Ordinal");
+
         d3.select("#ordinal").append("p")
             .text("Ordinal data has labels where the order is important. An example of this would be satisfaction ratings.");
 
+        //appending information on interval data
         d3.select("#interval").append("h1")
             .text("Interval");
+
         d3.select("#interval").append("p")
             .text("Interval data is a numeric scale. There is an order, and we know the difference between the values. There is no true zero for this data. An example is Calsius temperature.");
 
+        //appending information on ratio data
         d3.select("#ratio").append("h1")
             .text("Ratio");
+
         d3.select("#ratio").append("p")
             .text("Ratio data is a numeric scale with an absolute zero. There is also an order and a known difference between values. An example is weight.");
     </script>
-
 </body>
+
+</html>
