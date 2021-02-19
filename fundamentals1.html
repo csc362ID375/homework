@@ -34,14 +34,16 @@
         //make a list of the needed factors
         var fList = factors(24);
         //use list of factors to loop through and make circles
-        for (var i = 0; i < fList.length; i++) {
-            svg.append("circle")
-                .attr("r", fList[i])
-                .attr("cx", fList[i] * 10)
+        svg.selectAll("circle")
+            .data(fList)
+            .enter() //this is where the loop is
+                .append("circle")
+                .attr("r", d => d)
+                .attr("cx", d => d * 10)
                 .attr("cy", 150)
                 .attr("fill", "black")
                 .attr("stroke", "red");
-        }
+
     </script>
 </body>
 

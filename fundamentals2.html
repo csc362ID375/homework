@@ -1,4 +1,5 @@
 <html>
+
 <head>
     <!-- author: csc362ID375
     fundamentals2 for homework 1-->
@@ -26,14 +27,15 @@
         //slects correct svg
         var svg = d3.select("#display");
         //making original circles with given requirements like in fundamentals 1
-        for (var i = 0; i < array.length; i++) {
-            svg.append("circle")
-                .attr("r", array[i] / 2)
-                .attr("cx", start + (i * 100))
+        svg.selectAll("circle")
+            .data(array)
+            .enter() //this is where the loop is
+                .append("circle")
+                .attr("r", d => d / 2) 
+                .attr("cx", (d, i) => start + (i * 100)) 
                 .attr("cy", 150)
                 .attr("fill", "black")
                 .attr("stroke", "red");
-        }
 
         //transition
         setTimeout(function () {
@@ -41,11 +43,13 @@
             d3.select("#display").selectAll("circle")
                 .data(array.sort()) //sorts original data, which is radius size
                 .transition().duration(1500) //takes 1.5 seconds
-                .attr("r", d => d / 2) //takes next data point (radius in this case) and divides by 2
-                .attr("cx", (d, i) => start + (i * 100)) //cx like original circles but for each data point
+                .attr("r", d => d / 2)
+                .attr("cx", (d, i) => start + (i * 100)) 
                 .attr("fill", "black")
                 .attr("stroke", "red");
         }, 2000); //transition occurs after 2 seconds
+
     </script>
 </body>
+
 </html>
